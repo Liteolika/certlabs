@@ -36,5 +36,9 @@ docker tag webappimage:v1 $LOGIN_SERVER/webappimage:v1
 
 docker push $LOGIN_SERVER/webappimage:v1
 
+# List images
+az acr repository list --name $ACR_NAME --output table
+az acr repository show-tags --name $ACR_NAME --respository webappimage --output table
+
 # Build using ACR tasks
 az acr build --image "webappimage:v1-acr-task" --registry $ACR_NAME .
