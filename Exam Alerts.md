@@ -60,17 +60,37 @@ Premium (PxVx) - Increased resources to the standard tier.
 
 Isolated (I) - Mission critical workload. Isolated vnet.
 
-
-
-
-
 ### Implement Azure Functions
 
 - Implement input and output bindings for a function
 - Implement function triggers by using data operations, timers and webhooks
 - Implement Azure Durable Functions
 
+#### What to learn more
 
+Understand the configuration of input and output bindings.
+
+Know the role Azure Functions fill architecturally
+
+Review integrations with other services (blob, servicebus, etc)
+
+Know what use cases Durable Functions are the best fit for
+
+Know how to access function metrics and logging information
+
+##### Durable Functions App Patterns
+
+Function Chaining - Output from on action as input other action (complexed that needs to run in order)
+
+Fan-out/Fan-in - Refers to the pattern of executing multiple functions in parallel, and then waiting for all to finish. Often some aggregation work is done on results returned from the functions.
+
+Async HTTP API's - 
+
+Monitoring - Timers. Check to see when somethings are complete.
+
+Human interaction
+
+Aggregator (Stateful Entities)
 
 
 
