@@ -1,0 +1,26 @@
+# Create resource group
+az group create --location westeurope --resource-group id
+
+# Create keyvault
+az keyvault create --location westeurope --name az204-kv-peter --resource-group id
+
+# Add secret
+az keyvault secret set --name "secretColor" --vault-name az204-kv-peter --value "azure blue"
+
+# App service plan
+az appservice plan create --name "az204-appplan-peter" --resource-group "id" --sku F1
+
+# Find runtimes
+az webapp list-runtimes
+
+# Create webapp
+az webapp create --name "az204-app-peter" --plan "az204-appplan-peter" --resource-group "id" --runtime "DOTNETCORE|3.1"
+
+# Create system assigned managed identity
+az webapp identity assign -g "id"-n "az204-app-peter"
+
+az webapp identity show --name "az204-app-peter" --resource-group "id"
+
+# Set policy on key vault to read secrets for webapp
+az keyvault set-policy -n az204-kv-peter --secret-permissions get list --object-id "5351a4df-ddf7-4559-aace-b6cd4a4f6822"
+
