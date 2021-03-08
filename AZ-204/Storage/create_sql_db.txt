@@ -1,9 +1,10 @@
-az group create -n storage -l westeurope
+# Create resource group
+az group create -l westeurope -n storage
 
 # Create a SQL api cosmos db account
-az cosmosdb create -g storage -n peterdb
+az cosmosdb create -g storages -n petersdb
 
 # Create a SQL database
-az cosmosdb sql database create -g storage -a peterdb -n sampledb
+az cosmosdb sql database create -g storages -a petersdb -n sampledb
 
-az cosmosdb sql container create -g storage --account-name peterdb --database-name sampledb --name mycontainer --partition-key-path "/employeeId"
+az cosmosdb sql container create -g storages --account-name petersdb --database-name sampledb --name mycontainer --partition-key-path "/employeeId"
