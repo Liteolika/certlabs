@@ -1,0 +1,9 @@
+az group create -n storage -l westeurope
+
+# Create a SQL api cosmos db account
+az cosmosdb create -g storage -n peterdb
+
+# Create a SQL database
+az cosmosdb sql database create -g storage -a peterdb -n sampledb
+
+az cosmosdb sql container create -g storage --account-name peterdb --database-name sampledb --name mycontainer --partition-key-path "/employeeId"
