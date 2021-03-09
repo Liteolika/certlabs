@@ -1,0 +1,10 @@
+# Create resource group
+az group create -l westeurope -n icc
+
+# Create CDN
+az cdn profile create --resource-group icc --name peterscdn --sku Standard_Microsoft
+
+# Create endpoint
+az cdn endpoint create --resource-group icc --name examplecomep --profile-name peterscdn --origin www.example.com
+# Endpoint name must be unique https://[endpoint-name].azureedge.net
+
